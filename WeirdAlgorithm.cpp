@@ -15,19 +15,32 @@ const int INF = 1e9;
 const ll LLINF = 4e18;
 const int MOD = 1e9+7;
 
-// Solution code
-void solve() {
-    // Your solution here
-    
+void solve( ll  n ) {
+
+    while(n > 1){
+        cout << n << ' ';
+        if(n & 1LL){
+            n = n * 3 + 1 ;
+        }
+        else{
+            n = n/2;
+        }
+    }
+
+    cout << 1 << '\n';
+
 }
 
 int main() {
-    
-    // Uncomment for file I/O
     // freopen("input.txt", "r", stdin);
     // freopen("output.txt", "w", stdout);
-    
-    solve();
-    cout << "ahla bik" << endl; 
+
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    ll n ; 
+    cin >> n;
+
+    solve(n);
     return 0;
 }
