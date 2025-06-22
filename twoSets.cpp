@@ -45,6 +45,7 @@ void solve()
         cout << x << ' ';
     }
     cout << '\n';
+    
 }
 
 int main()
