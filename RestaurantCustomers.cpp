@@ -16,29 +16,28 @@ const ll LLINF = 4e18;
 const int MOD = 1e9+7;
 
 void solve( ) {
-
-int n;
-    cin >> n;
-
-    vector<pair<int, int>> events;
-    for (int i = 0; i < n; ++i) {
-        int a, b;
-        cin >> a >> b;
-        events.emplace_back(a, 1);  
-        events.emplace_back(b, -1); 
+    ll n ; 
+    cin >> n; 
+    vector<pair<int,int>> v;
+    for(int i = 0 ; i<n ;i ++){
+        ll x , y  ;
+        cin >> x >>y ; 
+        v.push_back({x, y});
     }
+    sort(v.begin(), v.end(), [](const pair<int,int>& a, const pair<int,int>& b){
+        return a.second < b.second;
+    } );
 
-    sort(events.begin(), events.end());
-
-    int max_customers = 0;
-    int current_customers = 0;
-
-    for (const auto& event : events) {
-        current_customers += event.second;
-        max_customers = max(max_customers, current_customers);
+    ll  y = v[0].second;
+    ll i =1, ans = 1;;
+    while (i<n){
+        if(v[i].first >= y){
+            ans ++;
+            y = v[i].second;
+        }
+        i++;
     }
-
-    cout << max_customers << '\n';
+    cout << ans<< '\n';
 }
 
 int main() {
